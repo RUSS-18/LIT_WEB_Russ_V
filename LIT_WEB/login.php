@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <base href="images/">
+    <title>Sign-in/Sign-up Page</title>
     <style>
         * {
             padding: 0;
@@ -20,7 +19,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('weldinglogo2.png');
+            background-image: url('images/welding.jpg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -38,7 +37,8 @@
             box-sizing: border-box;
         }
 
-        .login-con, .register-con {
+        .login-con,
+        .register-con {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -49,12 +49,12 @@
             background: linear-gradient(to right, #073fdaff 20%, #163791 100%);
             border: 1px solid rgba(1, 1, 1, .5);
             border-radius: 5px;
-            box-shadow: 10px 10px 10px rgba(1, 1, 1, .8);
+            box-shadow: -10px 12px 10px rgba(1, 1, 1, .6);
             display: flex;
             flex-direction: column;
             align-items: stretch;
             box-sizing: border-box;
-            transition: transform 0.5s cubic-bezier(.8,-0.04,.21,1), opacity 0.5s;
+            transition: transform 0.5s cubic-bezier(.8, -0.04, .21, 1), opacity 0.5s;
             z-index: 2;
         }
 
@@ -62,19 +62,22 @@
             transform: translate(-50%, -50%);
             opacity: 1;
             z-index: 3;
+            transition: all .5s ease-out;
         }
 
         .register-con {
-            transform: translate(90%, -50%);
+            transform: translate(180%, -50%);
             opacity: 0;
             z-index: 2;
+            transition: all .5s ease-out;
         }
 
         .container.register-active .login-con {
-            transform: translate(-170%, -50%);
-            opacity: 0.3;
+            transform: translate(-220%, -50%);
+            opacity: 0;
             z-index: 2;
             pointer-events: none;
+
         }
 
         .container.register-active .register-con {
@@ -96,7 +99,8 @@
             padding: 0 0 10px 0;
         }
 
-        .login-con h1, .register-con h1 {
+        .login-con h1,
+        .register-con h1 {
             text-align: center;
             font-size: 25px;
             font-weight: normal;
@@ -115,7 +119,8 @@
             margin-top: 20px;
         }
 
-        .login-con label, .register-con label {
+        .login-con label,
+        .register-con label {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: normal;
             font-size: 17px;
@@ -126,7 +131,8 @@
             margin-bottom: 7px;
         }
 
-        .login-con input, .register-con input {
+        .login-con input,
+        .register-con input {
             border: none;
             border-radius: 10px;
             box-shadow: 0px 0px 2px rgba(214, 214, 214, 0.8);
@@ -141,15 +147,18 @@
             line-height: 40px;
             align-self: center;
             letter-spacing: 1px;
+            transition: box-shadow .4s ease-in;
         }
 
-        .login-con input:focus, .register-con input:focus {
+        .login-con input:focus,
+        .register-con input:focus {
             outline: 0;
             border: 3px solid dodgerblue;
-            box-shadow: 5px 5px 10px rgb(0, 0, 0, .5);
+            box-shadow: -5px 5px 10px rgb(0, 0, 0, .5);
         }
 
-        .login-con button, .register-con button {
+        .login-con button,
+        .register-con button {
             margin: 10px;
             width: 350px;
             height: 45px;
@@ -166,39 +175,29 @@
             font-weight: 600;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             letter-spacing: 2px;
-            transition: background 0.4s;
+            transition: all 0.3s, box-shadow .3s ease-in;
         }
 
-        .login-con button:focus, .login-con button:hover,
-        .register-con button:focus, .register-con button:hover {
+        .login-con button:focus,
+        .login-con button:hover,
+        .register-con button:focus,
+        .register-con button:hover {
+            position: relative;
+            bottom: 2px;
             outline: 0;
-            background: dodgerblue;
+            line-height: 40px;
+            background: #0548ffff;
+            border: 2px solid dodgerblue;
             color: #fff;
-        }
-
-        .slide-toggle {
-            margin: 0 auto;
-            margin-top: 10px;
-            background: none;
-            border: none;
-            color: #f4ca16;
-            text-shadow: 0 0 10px rgba(0,0,0,.5);
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .slide-toggle:hover {
-            color: #fff;
+            box-shadow: 0 0 15px #0548ffd5, -7px 12px 10px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 
 <body>
     <div class="container" id="container">
-        <!-- Main Login Container -->
+        <!-- Login Container -->
         <div class="login-con">
             <div class="header">
                 <img src="Tesda Logo.png" alt="" width="50">
@@ -228,7 +227,7 @@
             <label for="">Confirm Password :</label>
             <input type="password" autocomplete="new-password">
             <button>Register</button>
-            <button class="slide-toggle" id="back-login">&larr; Back to Login</button>
+            <button class="slide-toggle" id="back-login">Already have an account? Login <br> &larr;</button>
         </div>
     </div>
     <script>
@@ -245,4 +244,5 @@
         });
     </script>
 </body>
+
 </html>
