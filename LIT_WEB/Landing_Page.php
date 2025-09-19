@@ -17,8 +17,8 @@
         <button class="slideshow-arrow" id="nextBtn" aria-label="Next">&#8250;</button>
 
         <div class="enrol-slide" id="enrolSlide">
-            <h1>Lasam Insitute of Technology</h1>
-            <h2>Bringing technical education and skills training <br> closer to every Filipinos.</h2>
+            <h1>TEST</h1>
+            <h2>Bringing technical education and skills training <br> closer to every chinese.</h2>
             <div class="Enroll-con">
                 <button class="enrollButton">ENROLL NOW</button>
             </div>
